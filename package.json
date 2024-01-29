@@ -20,5 +20,11 @@
   },
   "dependencies": {
     "uid": "^2.0.2"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [],
+  "author": "barszczuPro"
 }
