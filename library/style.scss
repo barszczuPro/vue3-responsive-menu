@@ -25,6 +25,12 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
 .responsive-menu {
     width: 100%;
     height: 100%;
@@ -59,8 +65,18 @@
     background-color: var(--res-menu-hover-backgroud);
     color: var(--res-menu-hover-text);
     ul {
+        width: 100%;
         display: block;
         color: var(--res-menu-text);
+    }
+    li {
+        padding: 0 20px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: var(--res-items-height);
+        border-bottom: 2px solid var(--res-menu-divider);
     }
 }
 
@@ -80,8 +96,17 @@
     background-color: var(--res-menu-hover-backgroud);
     color: var(--res-menu-hover-text);
     ul {
+        width: 100%;
         display: block;
         color: var(--res-menu-text);
+    }
+    li {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: var(--res-items-height);
+        border-bottom: 2px solid var(--res-menu-divider);
     }
 }
 

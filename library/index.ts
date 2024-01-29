@@ -1,3 +1,3 @@
-import Instance from './MenuInstance'
+import Instance from './ResponsiveMenuInstance'
 
 export default Instance

@@ -3,6 +3,7 @@ import MenuItem from "./menu.json"
 </script>
 
 <template>
+  <h1> vue3-responsive-menu </h1>
   <header>
     <responsive-menu :items="MenuItem" />
   </header>

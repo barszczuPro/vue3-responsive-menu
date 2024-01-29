@@ -1,7 +1,8 @@
 <template>
   <nav class="responsive-menu">
     <ul class="responsive-menu__items">
-      <li :class="['responsive-menu__item', { 'responsive-menu__item-submenu': item.childs?.length }]" :data-rmenu-id="item.id" v-for="(item, key) in responsiveMenuMain" :key="key">
+      <li :class="['responsive-menu__item', { 'responsive-menu__item-submenu': item.childs?.length }]"
+          :data-rmenu-id="item.id" v-for="(item, key) in responsiveMenuMain" :key="key">
         {{ item.label }}
         <span></span>
         <ul v-if="item.childs">
@@ -33,11 +34,11 @@ const props = defineProps({
 
 const responsiveMenu = ref([])
 const resizeMenuItems = ref([])
-const responsiveMenuMap = computed(() => resizeMenuItems.value.map(item => ({ [item.id]: item })).reduce((x, y) => ({...x, ...y})))
+const responsiveMenuMap = computed(() => resizeMenuItems.value.map(item => ({[item.id]: item})).reduce((x, y) => ({...x, ...y})))
 
 const responsiveMenuMain = computed(() => resizeMenuItems.value.length ? resizeMenuItems.value.filter(item => !item.parent && !item.showMore) : responsiveMenu.value)
 const responsiveMenuMore = computed(() => resizeMenuItems.value.filter(item => {
-  if(item.wrapSubmenu) {
+  if (item.wrapSubmenu) {
     return item.parent && responsiveMenuMap.value[item.parent]?.showMore
   }
   return item.showMore
@@ -45,22 +46,17 @@ const responsiveMenuMore = computed(() => resizeMenuItems.value.filter(item => {
 
 const responsiveMenuChilds = (id) => resizeMenuItems.value.filter(item => item.parent === id)
 
-
-
-
 function prepareItems(menu, parentId = null, nextElement = false, wrapSubmenu = false) {
   const result = [];
-
   menu.forEach((item, index) => {
     const id = uid(6);
     const nextEL = index < menu.length - 1 ? prepareItems([menu[index + 1]], null, true)[0].id : null;
-
     const transformedItem = {
       ...item,
       id,
-      ...(wrapSubmenu && { wrapSubmenu }),
-      ...(nextEL && { nextEL }),
-      ...(parentId && { parent: parentId }),
+      ...(wrapSubmenu && {wrapSubmenu}),
+      ...(nextEL && {nextEL}),
+      ...(parentId && {parent: parentId}),
       ...(item.submenu && {
         childs: item.submenu.map(submenuItem => {
           const transformedSubmenuItem = prepareItems([submenuItem], id, false, item.wrapSubmenu)[0];
@@ -69,13 +65,10 @@ function prepareItems(menu, parentId = null, nextElement = false, wrapSubmenu = 
         })
       })
     };
-
     if (transformedItem.childs && item.submenu) {
       delete transformedItem.submenu;
     }
-
     result.push(transformedItem);
-
     if (item.submenu && nextElement) {
       const transformedSubMenu = prepareItems(item.submenu, id);
       result.push(...transformedSubMenu);
@@ -83,12 +76,12 @@ function prepareItems(menu, parentId = null, nextElement = false, wrapSubmenu = 
   });
   return result;
 }
+
 const getItemElementByData = (id: number) => document.querySelector(`[data-rmenu-id="${id}"]`)
 
 const calculateMenu = () => {
   let submenuIds = responsiveMenu.value.filter(item => item.childs && item.id && (!item.wrap && !item.wrapSubmenu)).map(it => it.id)
   let breakpointHide = 0
-
   function deleteSubmenuArr(id) {
     const index = submenuIds.indexOf(id);
     if (index !== -1) {
@@ -96,23 +89,16 @@ const calculateMenu = () => {
     }
     return submenuIds;
   }
-
   return responsiveMenu.value.map((el, idx) => {
-    if(!el.parent) {
-
+    if (!el.parent) {
       const offset = getItemElementByData(el.id)?.offsetWidth
-
       const addSubmenus = submenuIds.reduce((acc, current) => acc + getItemElementByData(current)?.offsetWidth, 0)
-
       breakpointHide = breakpointHide + offset
-
       const test = breakpointHide + addSubmenus
-
-     if(el.childs) {
+      if (el.childs) {
         submenuIds = deleteSubmenuArr(el.id)
       }
-
-      return { ...el, ...{ offset, breakpointHide: test } }
+      return {...el, ...{offset, breakpointHide: test}}
     } else {
       return el
     }
@@ -121,16 +107,15 @@ const calculateMenu = () => {
 
 const resizeMenu = () => {
   const itemsOffsetWidth = document.getElementsByClassName("responsive-menu__items")[0]?.offsetWidth
-
   resizeMenuItems.value = responsiveMenu.value.map(item => {
     let showMore = false
-    if(!item.childs?.length) {
+    if (!item.childs?.length) {
       showMore = itemsOffsetWidth < (item.breakpointHide + document.getElementsByClassName("responsive-menu__more")?.[0].offsetWidth)
     }
-    if(item.childs?.length && (item.wrap || item.wrapSubmenu)) {
+    if (item.childs?.length && (item.wrap || item.wrapSubmenu)) {
       showMore = itemsOffsetWidth < (item.breakpointHide + document.getElementsByClassName("responsive-menu__more")?.[0].offsetWidth)
     }
-    return ({ ...item, showMore: !item.parent && showMore })
+    return ({...item, showMore: !item.parent && showMore})
   })
 }
 

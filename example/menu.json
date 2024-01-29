@@ -12,7 +12,7 @@
     "label": "Link 4 Bardzo długi",
     "submenu": [
       {
-        "label": "Link 4_1"
+        "label": "Link 4_1 Very long text"
       },
       {
         "label": "Link 4_2"
@@ -36,7 +36,7 @@
     "wrap": true,
     "submenu": [
       {
-        "label": "Link 8_1"
+        "label": "Link 8_1 Very long text Very long text Very long text"
       },
       {
         "label": "Link 8_2"

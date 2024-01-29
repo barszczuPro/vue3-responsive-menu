@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "vite serve example",
     "build:demo": "vite build example",
-    "build:liblary": "vite build library"
+    "build:liblary": "vite build library",
+    "docs:dev": "vitepress dev docs",
+    "docs:build": "vitepress build docs",
+    "docs:preview": "vitepress preview docs"
   },
   "devDependencies": {
     "@types/node": "^18.17.17",
@@ -14,12 +17,11 @@
     "@vue/tsconfig": "^0.4.0",
     "sass": "^1.69.5",
     "typescript": "^5.2.2",
+    "uid": "^2.0.2",
     "vite": "^5.0.8",
+    "vitepress": "1.0.0-rc.40",
     "vue": "^3.3.11",
     "vue-tsc": "^1.8.25"
-  },
-  "dependencies": {
-    "uid": "^2.0.2"
   },
   "repository": {
     "type": "git",
