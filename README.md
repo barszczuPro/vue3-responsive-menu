@@ -57,10 +57,10 @@ menu: [
 ## Development
 
 ```shell
-git clone git@github.com:imengyu/vue3-context-menu.git
-cd vue3-context-menu
+git clone git@github.com:barszczuPro/vue3-responsive-menu.git
+cd vue3-responsive-menu
 npm install
 npm run dev # Development serve project
-npm run build-demo # Build example project
-npm run build-lib # Build library project
+npm run build:demo # Build example project
+npm run build:liblary # Build library project
 ```
