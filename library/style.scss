@@ -1,0 +1,148 @@
+//CSS Vars
+:root {
+    //Backgroud
+    --res-menu-backgroud: #fff;
+    --res-menu-hover-backgroud: #5a5a5a;
+    --res-menu-active-backgroud: #5a5a5a;
+    --res-menu-divider: #5a5a5a;
+
+    //Text
+    --res-menu-text: #5a5a5a;
+    --res-menu-hover-text: #fff;
+    --res-menu-active-text: #5a5a5a;
+
+    //Items
+    --res-items-height: 60px;
+
+
+    font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+    line-height: 1.5;
+    font-weight: 400;
+
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.responsive-menu {
+    width: 100%;
+    height: 100%;
+    border-bottom: 2px solid var(--res-menu-divider);
+    background-color: var(--res-menu-backgroud);
+    color: var(--res-menu-text);
+}
+
+.responsive-menu__items {
+    display: flex;
+    justify-content: end;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    height: 100%;
+}
+
+.responsive-menu__item {
+    position: relative;
+    display: flex;
+    min-width: 100px;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 0 20px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    cursor: pointer;
+}
+
+.responsive-menu__item:hover {
+    background-color: var(--res-menu-hover-backgroud);
+    color: var(--res-menu-hover-text);
+    ul {
+        display: block;
+        color: var(--res-menu-text);
+    }
+}
+
+.responsive-menu__more {
+    position: relative;
+    display: flex;
+    min-width: 100px;
+    box-sizing: border-box;
+    height: 100%;
+    padding: 0 20px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0
+}
+
+.responsive-menu__more:hover {
+    background-color: var(--res-menu-hover-backgroud);
+    color: var(--res-menu-hover-text);
+    ul {
+        display: block;
+        color: var(--res-menu-text);
+    }
+}
+
+.responsive-menu__item ul {
+    position: absolute;
+    display: none;
+    top: var(--res-items-height);
+}
+
+.responsive-menu__more-disabled {
+    position: absolute;
+    z-index: -1;
+}
+
+.responsive-menu__more ul {
+    position: absolute;
+    display: none;
+    top: var(--res-items-height);
+}
+
+.responsive-menu__more span::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid var(--res-menu-text);
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transition: border-top-color 0.3s ease; /* Dodanie efektu przejścia */
+}
+
+.responsive-menu__more:hover span::after {
+    transform: rotate(180deg);
+    border-top-color: var(--res-menu-hover-text);
+}
+
+.responsive-menu__item-submenu span::after {
+    content: "";
+    display: block;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid var(--res-menu-text);
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transition: border-top-color 0.3s ease;
+}
+
+.responsive-menu__item-submenu span {
+    padding-left: 5px;
+}
+.responsive-menu__item-submenu:hover span::after {
+    transform: rotate(180deg);
+    border-top-color: var(--res-menu-hover-text);
+}
+
+.responsive-menu__more:hover ul {
+    display: block;
+}
