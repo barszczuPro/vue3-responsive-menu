@@ -2,6 +2,10 @@
 
 A Vue.js responsive menu component
 
+## Demo
+
+[vue3-responsive-menu](https://barszczupro.github.io/vue3-responsive-menu/)
+
 ## Item Propertis
 
 ```js
