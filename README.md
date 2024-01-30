@@ -1,6 +1,6 @@
-# Responsive Menu - responsive-menu
+# 👷🏻‍♂️ [In progress] 👷🏻‍♂️  Responsive Menu - responsive-menu 
 
-Paczka dostarczająca responsywne menu
+A Vue.js responsive menu component
 
 ## Item Propertis
 
