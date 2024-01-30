@@ -2,7 +2,7 @@
 import MenuItem from "./menu.json"
 import {ref} from "vue";
 
-const mode = ref("Simple")
+const mode = ref("")
 </script>
 
 <template>
@@ -13,12 +13,16 @@ const mode = ref("Simple")
     <span class="settings__title">Settings:</span>
     <span class="settings__mode">Mode: {{ mode }}</span>
     <div>
-      <input type="radio" id="simple" value="Simple" v-model="mode" />
-      <label for="simple">Simple</label>
+      <input type="radio" id="simpleMode" value="" v-model="mode" />
+      <label for="simpleMode">Simple</label>
     </div>
     <div>
-      <input type="radio" id="darkMode" value="Dark mode" v-model="mode" />
-      <label for="darkMode">Dark mode</label>
+      <input type="radio" id="darkMode" value="dark" v-model="mode" />
+      <label for="darkMode">Dark</label>
+    </div>
+    <div>
+      <input type="radio" id="macMode" value="mac" v-model="mode" />
+      <label for="macMode">Mac</label>
     </div>
   </div>
   <footer>
@@ -40,7 +44,6 @@ header {
   bottom: 60px;
   background-color: grey;
   width: 300px;
-  height: 150px;
   border-radius: 20px;
   margin: 10px;
   padding: 20px;

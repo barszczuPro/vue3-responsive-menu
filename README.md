@@ -21,8 +21,8 @@ menu: [
   },
   {
     label: "Menu 4",
-    wrap: false, // opctional
-    wrapSubmenu: false, // opctional
+    wrap: false, // Wrap main submenu item, default main submenu item and submenu items is not wrap
+    wrapSubmenu: false, // Wrap submenu items, default main submenu and submenu items is not wrap
     submenu: [
       {
         label: "Menu 4_1",
@@ -40,6 +40,20 @@ menu: [
   },
   
 ]
+```
+
+## Mode
+
+| Name        | Value   | Type                | Description   |
+|-------------|---------|---------------------|---------------|
+| Default mode | Default | Default             | Default theme |
+| Dark mode   | `dark`  | `string`            | Dark theme    |
+| Mac mode    | `mac`    | `sttring` | Mac theme   |
+
+### Use mode
+
+```vue
+<responsive-menu :items="[]" mode="dark" />
 ```
 
 ## API
