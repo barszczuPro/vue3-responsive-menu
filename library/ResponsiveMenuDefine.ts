@@ -1,3 +1,7 @@
+export interface Config {
+  labelMore: string
+  mode: string
+}
 export interface MenuItem {
   title: string
   path?: any
