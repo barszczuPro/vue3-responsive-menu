@@ -2,26 +2,29 @@
 import MenuItem from './menu.json'
 import { ref } from 'vue'
 
-const mode = ref('')
+const config = ref({
+  mode: '',
+  labelMore: 'Więcej'
+})
 </script>
 
 <template>
   <header>
-    <responsive-menu :items="MenuItem" :mode="mode" />
+    <responsive-menu :items="MenuItem" :config="config" />
   </header>
   <div class="settings">
     <span class="settings__title">Settings:</span>
-    <span class="settings__mode">Mode: {{ mode }}</span>
+    <span class="settings__mode">Mode: {{ config.mode }}</span>
     <div>
-      <input type="radio" id="simpleMode" value="" v-model="mode" />
+      <input type="radio" id="simpleMode" value="" v-model="config.mode" />
       <label for="simpleMode">Simple</label>
     </div>
     <div>
-      <input type="radio" id="darkMode" value="dark" v-model="mode" />
+      <input type="radio" id="darkMode" value="dark" v-model="config.mode" />
       <label for="darkMode">Dark</label>
     </div>
     <div>
-      <input type="radio" id="macMode" value="mac" v-model="mode" />
+      <input type="radio" id="macMode" value="mac" v-model="config.mode" />
       <label for="macMode">Mac</label>
     </div>
   </div>

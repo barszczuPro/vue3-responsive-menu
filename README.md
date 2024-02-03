@@ -42,19 +42,31 @@ menu: [
 ]
 ```
 
-## Mode
+
+## Config
+
+#### Use config
+
+```vue
+<responsive-menu :items="[]" config="{
+ labelMore: 'See more',
+ mode: ''
+}" />
+```
+
+```js
+{
+    labelMore: '',
+    mode: ''
+}
+```
+#### Mode
 
 | Name        | Value   | Type                | Description   |
 |-------------|---------|---------------------|---------------|
 | Default mode | Default | Default             | Default theme |
 | Dark mode   | `dark`  | `string`            | Dark theme    |
 | Mac mode    | `mac`    | `sttring` | Mac theme   |
-
-### Use mode
-
-```vue
-<responsive-menu :items="[]" mode="dark" />
-```
 
 ## API
 

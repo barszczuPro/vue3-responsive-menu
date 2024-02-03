@@ -1,5 +1,5 @@
 <template>
-  <nav class="responsive-menu" :class="['responsive-menu', { [`responsive-menu-${mode}`]: mode }]">
+  <nav class="responsive-menu" :class="['responsive-menu', { [`responsive-menu-${config.mode}`]: config.mode }]">
     <ul class="responsive-menu__items">
       <li
         :class="['responsive-menu__item', { 'responsive-menu__item-submenu': item.childs?.length }]"
@@ -19,7 +19,7 @@
           { 'responsive-menu__more-disabled': !responsiveMenuMore.length }
         ]"
       >
-        More
+        {{ config.labelMore }}
         <span></span>
         <ul>
           <li v-for="(item, key) in responsiveMenuMore" :key="key">{{ item.label }}</li>
@@ -39,9 +39,12 @@ const props = defineProps({
     type: Array<MenuItem>,
     default: () => []
   },
-  mode: {
-    type: String,
-    default: ''
+  config: {
+    type: Object,
+    default: () => ({
+      labelMore: 'More',
+      mode: '',
+    })
   }
 })
 
