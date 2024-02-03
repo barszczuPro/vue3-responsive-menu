@@ -4,6 +4,4 @@ import App from './App.vue'
 
 import Menu from '../library/ResponsiveMenuInstance'
 
-createApp(App)
-  .use(Menu)
-  .mount('#app')
+createApp(App).use(Menu).mount('#app')

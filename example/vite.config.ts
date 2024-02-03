@@ -7,13 +7,13 @@ export default defineConfig({
   base: '/vue3-responsive-menu/',
   resolve: {
     alias: {
-      vue: 'vue/dist/vue.esm-bundler.js',
+      vue: 'vue/dist/vue.esm-bundler.js'
     },
-    dedupe: ['vue'],
+    dedupe: ['vue']
   },
   server: {
     fs: {
-      allow: ['..'],
-    },
-  },
+      allow: ['..']
+    }
+  }
 })

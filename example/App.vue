@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import MenuItem from "./menu.json"
-import {ref} from "vue";
+import MenuItem from './menu.json'
+import { ref } from 'vue'
 
-const mode = ref("")
+const mode = ref('')
 </script>
 
 <template>
   <header>
-    <responsive-menu :items="MenuItem" />
+    <responsive-menu :items="MenuItem" :mode="mode" />
   </header>
   <div class="settings">
     <span class="settings__title">Settings:</span>
@@ -26,7 +26,8 @@ const mode = ref("")
     </div>
   </div>
   <footer>
-    vue3-responsive-menu | <a href="https://github.com/barszczuPro/vue3-responsive-menu" target="_blank">GitHub</a>
+    vue3-responsive-menu |
+    <a href="https://github.com/barszczuPro/vue3-responsive-menu" target="_blank">GitHub</a>
   </footer>
 </template>
 

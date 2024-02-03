@@ -9,9 +9,16 @@
     "build:liblary": "vite build library",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
-    "docs:preview": "vitepress preview docs"
+    "docs:preview": "vitepress preview docs",
+    "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "format": "prettier --write library/ example/"
   },
   "devDependencies": {
+    "@rushstack/eslint-patch": "^1.3.3",
+    "eslint": "^8.49.0",
+    "eslint-plugin-vue": "^9.17.0",
+    "@vue/eslint-config-prettier": "^8.0.0",
+    "@vue/eslint-config-typescript": "^12.0.0",
     "@types/node": "^18.17.17",
     "@vitejs/plugin-vue": "^4.5.2",
     "@vue/tsconfig": "^0.4.0",

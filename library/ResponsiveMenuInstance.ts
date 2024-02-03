@@ -1,5 +1,5 @@
-import type { App } from "vue";
-import ResponsiveMenu from "./ResponsiveMenu.vue";
+import type { App } from 'vue'
+import ResponsiveMenu from './ResponsiveMenu.vue'
 
 export default {
   install(app: App<Element>): void {
