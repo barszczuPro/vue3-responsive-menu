@@ -13,8 +13,14 @@
       >
         {{ item.label }}
         <span></span>
-        <ul v-if="item.childs">
-          <li v-for="(item, key) in responsiveMenuChilds(item.id)" :key="key">{{ item.label }}</li>
+        <ul v-if="item.childs" class="responsive-menu__submenu-items">
+          <li
+            v-for="(item, key) in responsiveMenuChilds(item.id)"
+            class="responsive-menu__submenu-item"
+            :key="key"
+          >
+            {{ item.label }}
+          </li>
         </ul>
       </li>
       <li
@@ -26,8 +32,14 @@
       >
         {{ config.labelMore }}
         <span></span>
-        <ul>
-          <li v-for="(item, key) in responsiveMenuMore" :key="key">{{ item.label }}</li>
+        <ul class="responsive-menu__submenu-items">
+          <li
+            v-for="(item, key) in responsiveMenuMore"
+            class="responsive-menu__submenu-item"
+            :key="key"
+          >
+            {{ item.label }}
+          </li>
         </ul>
       </li>
     </ul>

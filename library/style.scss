@@ -79,6 +79,15 @@ ul {
   }
 }
 
+.responsive-menu__submenu-item {
+  border-left: 2px solid var(--res-menu-divider);
+  border-right: 2px solid var(--res-menu-divider);
+  &:hover {
+    background-color: var(--res-menu-hover-backgroud);
+    color: var(--res-menu-hover-text);
+  }
+}
+
 .responsive-menu__more {
   position: relative;
   display: flex;
