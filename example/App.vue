@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import MenuItem from './menu.json'
-import { ref } from 'vue'
+import {ref} from 'vue'
 
 const config = ref({
   mode: '',
@@ -10,21 +10,27 @@ const config = ref({
 
 <template>
   <header>
-    <responsive-menu :items="MenuItem" :config="config" />
+    <responsive-menu :items="MenuItem" :config="config"/>
   </header>
+  <div class="container-test">
+    <responsive-menu :items="MenuItem" :config="{
+  mode: 'mac',
+  labelMore: 'Więcej'
+}"/>
+  </div>
   <div class="settings">
     <span class="settings__title">Settings:</span>
     <span class="settings__mode">Mode: {{ config.mode }}</span>
     <div>
-      <input type="radio" id="simpleMode" value="" v-model="config.mode" />
+      <input type="radio" id="simpleMode" value="" v-model="config.mode"/>
       <label for="simpleMode">Simple</label>
     </div>
     <div>
-      <input type="radio" id="darkMode" value="dark" v-model="config.mode" />
+      <input type="radio" id="darkMode" value="dark" v-model="config.mode"/>
       <label for="darkMode">Dark</label>
     </div>
     <div>
-      <input type="radio" id="macMode" value="mac" v-model="config.mode" />
+      <input type="radio" id="macMode" value="mac" v-model="config.mode"/>
       <label for="macMode">Mac</label>
     </div>
   </div>
@@ -43,6 +49,14 @@ header {
   height: 60px;
 }
 
+.container-test {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  box-sizing: border-box;
+}
+
 .settings {
   position: absolute;
   bottom: 60px;
@@ -55,6 +69,7 @@ header {
   color: white;
   display: flex;
   flex-direction: column;
+
   &__title {
     font-weight: bold;
     font-size: 18px;
@@ -71,6 +86,7 @@ footer {
   width: 100%;
   height: 60px;
   border: 1px solid grey;
+
   & a {
     text-decoration: none;
     color: unset;

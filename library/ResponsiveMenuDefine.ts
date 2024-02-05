@@ -7,7 +7,7 @@ export interface MenuItem {
   path?: any
   href?: string
   wrap?: boolean
-  submenuWrap: boolean
+  submenuWrap?: boolean
   icon?: string
 }
 

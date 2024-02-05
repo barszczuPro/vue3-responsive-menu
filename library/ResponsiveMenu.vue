@@ -1,42 +1,42 @@
 <template>
   <nav
-    class="responsive-menu"
-    :class="['responsive-menu', { [`responsive-menu-${config.mode}`]: config.mode }]"
+      ref="itemsRefs"
+      :class="[{ [`responsive-menu-${config.mode}`]: config.mode }, 'responsive-menu']"
   >
-    <ul class="responsive-menu__items" ref="itemsRefs">
+    <ul class="responsive-menu__items">
       <li
-        :class="['responsive-menu__item', { 'responsive-menu__item-submenu': item.childs?.length }]"
-        :data-rmenu-id="item.id"
-        v-for="(item, key) in responsiveMenuMain"
-        :key="key"
-        ref="itemRefs"
+          :class="['responsive-menu__item', { 'responsive-menu__item-submenu': item.childs?.length }]"
+          :data-rmenu-id="item.id"
+          v-for="(item, key) in responsiveMenuMain"
+          :key="key"
+          ref="itemRefs"
       >
         {{ item.label }}
         <span></span>
         <ul v-if="item.childs" class="responsive-menu__submenu-items">
           <li
-            v-for="(item, key) in responsiveMenuChilds(item.id)"
-            class="responsive-menu__submenu-item"
-            :key="key"
+              v-for="(item, key) in responsiveMenuChilds(item.id)"
+              class="responsive-menu__submenu-item"
+              :key="key"
           >
             {{ item.label }}
           </li>
         </ul>
       </li>
       <li
-        :class="[
+          :class="[
           'responsive-menu__more',
           { 'responsive-menu__more-disabled': !responsiveMenuMore.length }
         ]"
-        ref="itemMoreRef"
+          ref="itemMoreRef"
       >
         {{ config.labelMore }}
         <span></span>
         <ul class="responsive-menu__submenu-items">
           <li
-            v-for="(item, key) in responsiveMenuMore"
-            class="responsive-menu__submenu-item"
-            :key="key"
+              v-for="(item, key) in responsiveMenuMore"
+              class="responsive-menu__submenu-item"
+              :key="key"
           >
             {{ item.label }}
           </li>
@@ -47,10 +47,10 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, nextTick, ref } from 'vue'
-import type { PropType } from 'vue'
-import { uid } from 'uid'
-import type { MenuItem, Config } from '@/ResponsiveMenuDefine'
+import {computed, nextTick, ref} from 'vue'
+import type {PropType} from 'vue'
+import {uid} from 'uid'
+import type {MenuItem, Config} from '@/ResponsiveMenuDefine'
 
 const props = defineProps({
   items: {
@@ -73,7 +73,7 @@ const itemMoreRef = ref<HTMLElement | null>(null)
 const responsiveMenu = ref([])
 const resizeMenuItems = ref([])
 const responsiveMenuMap = computed(() =>
-  resizeMenuItems.value.map((item) => ({ [item.id]: item })).reduce((x, y) => ({ ...x, ...y }))
+  resizeMenuItems.value.map((item) => ({[item.id]: item})).reduce((x, y) => ({...x, ...y}))
 )
 
 const responsiveMenuMain = computed(() =>
@@ -101,9 +101,9 @@ function prepareItems(menu, parentId = null, nextElement = false, wrapSubmenu = 
     const transformedItem = {
       ...item,
       id,
-      ...(wrapSubmenu && { wrapSubmenu }),
-      ...(nextEL && { nextEL }),
-      ...(parentId && { parent: parentId }),
+      ...(wrapSubmenu && {wrapSubmenu}),
+      ...(nextEL && {nextEL}),
+      ...(parentId && {parent: parentId}),
       ...(item.submenu && {
         childs: item.submenu.map((submenuItem) => {
           const transformedSubmenuItem = prepareItems([submenuItem], id, false, item.wrapSubmenu)[0]
@@ -132,6 +132,7 @@ const calculateMenu = () => {
     .filter((item) => item.childs && item.id && !item.wrap && !item.wrapSubmenu)
     .map((it) => it.id)
   let breakpointHide = 0
+
   function deleteSubmenuArr(id) {
     const index = submenuIds.indexOf(id)
     if (index !== -1) {
@@ -139,6 +140,7 @@ const calculateMenu = () => {
     }
     return submenuIds
   }
+
   return responsiveMenu.value.map((el) => {
     if (!el.parent) {
       const offset = getItemElementByDataRef(el.id)?.offsetWidth
@@ -151,7 +153,7 @@ const calculateMenu = () => {
       if (el.childs) {
         submenuIds = deleteSubmenuArr(el.id)
       }
-      return { ...el, ...{ offset, breakpointHide: breakpointHideAndSubmenus } }
+      return {...el, ...{offset, breakpointHide: breakpointHideAndSubmenus}}
     } else {
       return el
     }
@@ -168,7 +170,7 @@ const resizeMenu = () => {
     if (item.childs?.length && (item.wrap || item.wrapSubmenu)) {
       showMore = itemsOffsetWidth < item.breakpointHide + itemMoreRef.value?.offsetWidth
     }
-    return { ...item, showMore: !item.parent && showMore }
+    return {...item, showMore: !item.parent && showMore}
   })
 }
 
