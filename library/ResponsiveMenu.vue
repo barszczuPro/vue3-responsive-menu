@@ -1,23 +1,25 @@
 <template>
   <nav
       ref="itemsRefs"
-      :class="[{ [`responsive-menu-${config.mode}`]: config.mode }, 'responsive-menu']"
+      :class="['v-responsive-menu', { [`vrm__menu-${config.mode}`]: config.mode }, 'vrm__menu']"
   >
-    <ul class="responsive-menu__items">
+    <ul class="vrm__menu-items">
       <li
-          :class="['responsive-menu__item', { 'responsive-menu__item-submenu': item.childs?.length }]"
+          :class="['vrm__menu-item', { 'vrm__submenu': item.childs?.length }]"
           :data-rmenu-id="item.id"
           v-for="(item, key) in responsiveMenuMain"
           :key="key"
           ref="itemRefs"
+          @click="item.onClick"
       >
         {{ item.label }}
         <span></span>
-        <ul v-if="item.childs" class="responsive-menu__submenu-items">
+        <ul v-if="item.childs" class="vrm__submenu-items">
           <li
               v-for="(item, key) in responsiveMenuChilds(item.id)"
-              class="responsive-menu__submenu-item"
+              class="vrm__submenu-item"
               :key="key"
+              @click.stop="item.onClick"
           >
             {{ item.label }}
           </li>
@@ -25,17 +27,17 @@
       </li>
       <li
           :class="[
-          'responsive-menu__more',
-          { 'responsive-menu__more-disabled': !responsiveMenuMore.length }
+          'vrm__more',
+          { 'vrm__more-disabled': !responsiveMenuMore.length }
         ]"
           ref="itemMoreRef"
       >
         {{ config.labelMore }}
         <span></span>
-        <ul class="responsive-menu__submenu-items">
+        <ul class="vrm__submenu-items">
           <li
               v-for="(item, key) in responsiveMenuMore"
-              class="responsive-menu__submenu-item"
+              class="vrm__submenu-item"
               :key="key"
           >
             {{ item.label }}

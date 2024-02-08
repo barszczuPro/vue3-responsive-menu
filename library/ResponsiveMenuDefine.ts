@@ -3,12 +3,19 @@ export interface Config {
   mode: string
 }
 export interface MenuItem {
-  title: string
-  path?: any
-  href?: string
+  label: string
+  onClick?: () => Function
   wrap?: boolean
   submenuWrap?: boolean
   icon?: string
+}
+
+export interface ResponsiveMenuItem {
+  id: string
+  label: string
+  nextEl: string
+  offset: number
+  breakpointHide: number
 }
 
 export interface MenuItemMap extends MenuItem {

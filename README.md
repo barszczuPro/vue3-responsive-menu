@@ -12,9 +12,11 @@ A Vue.js responsive menu component
 menu: [
   {
     label: "Menu 1",
+    onClick: () => alert("Menu 1"),
   },
   {
     label: "Menu 2",
+    onClick: () => alert("Menu 1"),
   }, 
   {
     label: "Menu 3",
@@ -26,6 +28,7 @@ menu: [
     submenu: [
       {
         label: "Menu 4_1",
+        onClick: () => alert("Menu 4_1"),
       },
       {
         label: "Menu 4_2",
@@ -83,6 +86,23 @@ menu: [
     <tbody>
     </tbody>
 </table>
+
+## Styles
+
+```json
+  v-responsive-menu
+  
+  vrm__menu
+    vrm__menu-items
+      vrm__menu-item
+
+  vrm__submenu
+    vrm__submenu-items
+      vrm__submenu-item
+
+  vrm__more
+  vrm__more-disabled
+```
 
 ## Development
 

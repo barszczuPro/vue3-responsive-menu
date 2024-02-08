@@ -1,19 +1,95 @@
 <script setup lang="ts">
-import MenuItem from './menu.json'
 import {ref} from 'vue'
 
 const config = ref({
   mode: '',
   labelMore: 'Więcej'
 })
+
+const menuItem = [
+  {
+    label: "Link 1",
+    onClick: () => alert("Link 1"),
+  },
+  {
+    label: "Link 2",
+    onClick: () => alert("Link 2"),
+  },
+  {
+    label: "Link 3",
+    onClick: () => alert("Link 3"),
+  },
+  {
+    label: "Link 4 Bardzo długi",
+    onClick: () => alert("Link 4 Bardzo długi"),
+    submenu: [
+      {
+        label: "Link 4_1 Very long text",
+        onClick: () => alert("Link 4_1 Very long text"),
+      },
+      {
+        label: "Link 4_2",
+        onClick: () => alert("Link 4_2"),
+      },
+      {
+        label: "Link 4_3",
+        onClick: () => alert("Link 4_3"),
+      }
+    ]
+  },
+  {
+    label: "Link 5",
+    onClick: () => alert("Link 5"),
+  },
+  {
+    label: "Link 6",
+    onClick: () => alert("Link 6"),
+  },
+  {
+    label: "Link 7",
+    onClick: () => alert("Link 7"),
+  },
+  {
+    label: "Link 8",
+    onClick: () => alert("Link 8"),
+    wrap: true,
+    submenu: [
+      {
+        label: "Link 8_1 Very long text Very long text Very long text",
+        onClick: () => alert("Link 8_1 Very long text Very long text Very long text"),
+      },
+      {
+        label: "Link 8_2",
+        onClick: () => alert("Link 8_2"),
+      },
+      {
+        label: "Link 8_3",
+        onClick: () => alert("Link 8_3"),
+      }
+    ]
+  },
+  {
+    label: "Link 9",
+    onClick: () => alert("Link 9"),
+  },
+  {
+    label: "Link 10",
+    onClick: () => alert("Link 10"),
+  },
+  {
+    label: "Link 11",
+    onClick: () => alert("Link 11"),
+  }
+]
+
 </script>
 
 <template>
   <header>
-    <responsive-menu :items="MenuItem" :config="config"/>
+    <responsive-menu :items="menuItem" :config="config"/>
   </header>
   <div class="container-test">
-    <responsive-menu :items="MenuItem" :config="{
+    <responsive-menu :items="menuItem" :config="{
   mode: 'mac',
   labelMore: 'Więcej'
 }"/>
