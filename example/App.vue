@@ -2,7 +2,6 @@
 import {ref} from 'vue'
 
 const config = ref({
-  iconMore: {name: 'corner-right-down'},
   mode: '',
   labelMore: 'Więcej'
 })
@@ -126,7 +125,6 @@ header {
   top: 0;
   width: 100%;
   margin: 0 auto;
-  height: 60px;
 }
 
 .container-test {

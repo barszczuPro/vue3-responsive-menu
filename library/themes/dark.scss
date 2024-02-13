@@ -1,0 +1,52 @@
+//// Dark mode
+//.vrm__menu-dark {
+//  //Backgroud
+//  --res-menu-backgroud: #424242;
+//  --res-menu-hover-backgroud: #5a5a5a;
+//  --res-menu-active-backgroud: #5a5a5a;
+//  --res-menu-divider: #5a5a5a;
+//
+//  //Text
+//  --res-menu-text: #dddddd;
+//  --res-menu-hover-text: #fff;
+//  --res-menu-active-text: #5a5a5a;
+//
+//  //Items
+//  --res-items-height: 60px;
+//
+//  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+//  line-height: 1.5;
+//  font-weight: 400;
+//
+//  font-synthesis: none;
+//  text-rendering: optimizeLegibility;
+//  -webkit-font-smoothing: antialiased;
+//  -moz-osx-font-smoothing: grayscale;
+//
+//  &.vrm__menu {
+//    //background-color: #424242;
+//    border-radius: 5px;
+//  }
+//
+//  .vrm__menu {
+//    &__item {
+//      &:hover {
+//        background-color: unset;
+//        border-bottom: 2px solid blue;
+//      }
+//    }
+//  }
+//
+//  .vrm__submenu {
+//    &-items {
+//      padding-top: 10px;
+//      border-radius: 10px;
+//    }
+//    &-item {
+//      background-color: var(--res-menu-backgroud);
+//      &:hover {
+//        background-color: var(--res-menu-hover-backgroud);
+//      }
+//    }
+//  }
+//}

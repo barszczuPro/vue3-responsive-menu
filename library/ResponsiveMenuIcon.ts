@@ -1,7 +1,11 @@
 import * as feather from 'feather-icons';
-import {computed} from "vue";
+export interface VrmIconPayload {
+  name: string
+  options: any
+}
+
 export const useUtils = () => {
-  const vrmIcon = ({ name, options }) => {
+  const vrmIcon = ({ name, options }: VrmIconPayload) => {
     console.log(name, 'payload')
     return feather.icons[name].toSvg(options)
   }
