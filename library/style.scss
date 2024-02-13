@@ -75,7 +75,7 @@ ul {
         padding: 0 20px;
         width: 100%;
         display: flex;
-        justify-content: center;
+        //justify-content: center;
         align-items: center;
         min-height: var(--res-items-height);
         border-bottom: 2px solid var(--res-menu-divider);
@@ -115,6 +115,18 @@ ul {
 .vrm__submenu:hover span::after {
   transform: rotate(180deg);
   border-top-color: var(--res-menu-hover-text);
+}
+
+.vrm__icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &-left {
+    margin-right: 10px;
+  }
+  &-right {
+    margin-left: 10px;
+  }
 }
 
 .vrm__more {
@@ -184,31 +196,6 @@ ul {
 // Dark mode
 .vrm__menu-dark {
   //Backgroud
-  --res-menu-backgroud: #000;
-  --res-menu-hover-backgroud: #5a5a5a;
-  --res-menu-active-backgroud: #5a5a5a;
-  --res-menu-divider: #5a5a5a;
-
-  //Text
-  --res-menu-text: #5a5a5a;
-  --res-menu-hover-text: #fff;
-  --res-menu-active-text: #5a5a5a;
-
-  //Items
-  --res-items-height: 60px;
-
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.vrm__menu-mac {
-  //Backgroud
   --res-menu-backgroud: #424242;
   --res-menu-hover-backgroud: #5a5a5a;
   --res-menu-active-backgroud: #5a5a5a;
@@ -241,6 +228,19 @@ ul {
       &:hover {
         background-color: unset;
         border-bottom: 2px solid blue;
+      }
+    }
+  }
+
+  .vrm__submenu {
+    &-items {
+      padding-top: 10px;
+      border-radius: 10px;
+    }
+    &-item {
+      background-color: var(--res-menu-backgroud);
+      &:hover {
+        background-color: var(--res-menu-hover-backgroud);
       }
     }
   }

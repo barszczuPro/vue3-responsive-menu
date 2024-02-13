@@ -12,8 +12,10 @@
           ref="itemRefs"
           @click="item.onClick"
       >
+        <div v-if="item.iconLeft" class="vrm__icon vrm__icon-left" v-html="vrmIcon(item.iconLeft)" />
         {{ item.label }}
-        <span></span>
+        <div v-if="item.iconRight" class="vrm__icon vrm__icon-right" v-html="vrmIcon(item.iconRight)" />
+        <span v-else></span>
         <ul v-if="item.childs" class="vrm__submenu-items">
           <li
               v-for="(item, key) in responsiveMenuChilds(item.id)"
@@ -21,7 +23,9 @@
               :key="key"
               @click.stop="item.onClick"
           >
+            <div v-if="item.iconLeft" class="vrm__icon vrm__icon-left" v-html="vrmIcon(item.iconLeft)" />
             {{ item.label }}
+            <div v-if="item.iconRight" class="vrm__icon vrm__icon-right" v-html="vrmIcon(item.iconRight)" />
           </li>
         </ul>
       </li>
@@ -33,14 +37,18 @@
           ref="itemMoreRef"
       >
         {{ config.labelMore }}
-        <span></span>
+        <div v-if="config.iconMore" class="vrm__icon vrm__icon-right" v-html="vrmIcon(config.iconMore)" />
+        <span v-else></span>
         <ul class="vrm__submenu-items">
           <li
               v-for="(item, key) in responsiveMenuMore"
               class="vrm__submenu-item"
               :key="key"
+              @click.stop="item.onClick"
           >
+            <div v-if="item.iconLeft" class="vrm__icon vrm__icon-left" v-html="vrmIcon(item.iconLeft)" />
             {{ item.label }}
+            <div v-if="item.iconRight" class="vrm__icon vrm__icon-right" v-html="vrmIcon(item.iconRight)" />
           </li>
         </ul>
       </li>
@@ -53,6 +61,9 @@ import {computed, nextTick, ref} from 'vue'
 import type {PropType} from 'vue'
 import {uid} from 'uid'
 import type {MenuItem, Config} from '@/ResponsiveMenuDefine'
+import { useUtils } from "./ResponsiveMenuIcon";
+
+const { vrmIcon } = useUtils()
 
 const props = defineProps({
   items: {
@@ -62,6 +73,7 @@ const props = defineProps({
   config: {
     type: Object as PropType<Config>,
     default: () => ({
+      iconMore: '',
       labelMore: 'More',
       mode: ''
     })

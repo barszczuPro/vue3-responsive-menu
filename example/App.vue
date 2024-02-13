@@ -2,6 +2,7 @@
 import {ref} from 'vue'
 
 const config = ref({
+  iconMore: {name: 'corner-right-down'},
   mode: '',
   labelMore: 'Więcej'
 })
@@ -9,7 +10,7 @@ const config = ref({
 const menuItem = [
   {
     label: "Link 1",
-    onClick: () => alert("Link 1"),
+    onClick: () => alert("Link 1")
   },
   {
     label: "Link 2",
@@ -21,17 +22,22 @@ const menuItem = [
   },
   {
     label: "Link 4 Bardzo długi",
+    iconLeft: {name: 'box'},
+    iconRight: {name: 'arrow-down'},
     onClick: () => alert("Link 4 Bardzo długi"),
     submenu: [
       {
+        iconLeft: {name: 'box'},
         label: "Link 4_1 Very long text",
         onClick: () => alert("Link 4_1 Very long text"),
       },
       {
+        iconLeft: {name: 'box'},
         label: "Link 4_2",
         onClick: () => alert("Link 4_2"),
       },
       {
+        iconLeft: {name: 'box'},
         label: "Link 4_3",
         onClick: () => alert("Link 4_3"),
       }
@@ -70,6 +76,7 @@ const menuItem = [
   },
   {
     label: "Link 9",
+    iconRight: {name: 'users'},
     onClick: () => alert("Link 9"),
   },
   {
@@ -77,6 +84,7 @@ const menuItem = [
     onClick: () => alert("Link 10"),
   },
   {
+    iconLeft: {name: 'users'},
     label: "Link 11",
     onClick: () => alert("Link 11"),
   }
@@ -88,12 +96,12 @@ const menuItem = [
   <header>
     <responsive-menu :items="menuItem" :config="config"/>
   </header>
-  <div class="container-test">
-    <responsive-menu :items="menuItem" :config="{
-  mode: 'mac',
-  labelMore: 'Więcej'
-}"/>
-  </div>
+<!--  <div class="container-test">-->
+<!--    <responsive-menu :items="menuItem" :config="{-->
+<!--  mode: 'dark',-->
+<!--  labelMore: 'Więcej'-->
+<!--}"/>-->
+<!--  </div>-->
   <div class="settings">
     <span class="settings__title">Settings:</span>
     <span class="settings__mode">Mode: {{ config.mode }}</span>
@@ -104,10 +112,6 @@ const menuItem = [
     <div>
       <input type="radio" id="darkMode" value="dark" v-model="config.mode"/>
       <label for="darkMode">Dark</label>
-    </div>
-    <div>
-      <input type="radio" id="macMode" value="mac" v-model="config.mode"/>
-      <label for="macMode">Mac</label>
     </div>
   </div>
   <footer>

@@ -13,6 +13,14 @@ menu: [
   {
     label: "Menu 1",
     onClick: () => alert("Menu 1"),
+    iconLeft: {
+      name: 'x',
+      options: {} // Look https://feathericons.com/
+    },
+    iconRight: {
+      name: 'x',
+      options: {} // Look https://feathericons.com/
+    }
   },
   {
     label: "Menu 2",
@@ -45,6 +53,26 @@ menu: [
 ]
 ```
 
+## Use Icon - [feathericons](https://feathericons.com/)
+
+```js
+iconLeft: {
+  name: 'x',
+  options: {
+//      class: 'feather feather-x',
+//      xmlns: 'http://www.w3.org/2000/svg',
+//      width: 24,
+//      height: 24,
+//      viewBox: '0 0 24 24',
+//      fill: 'none',
+//      stroke: 'currentColor',
+//      'stroke-width': 2,
+//      'stroke-linecap': 'round',
+//      'stroke-linejoin': 'round',
+  }
+}
+```
+
 
 ## Config
 
@@ -59,6 +87,10 @@ menu: [
 
 ```js
 {
+    iconMore: {
+      name: 'x',
+      options: {}
+    }
     labelMore: '',
     mode: ''
 }
@@ -69,7 +101,6 @@ menu: [
 |-------------|---------|---------------------|---------------|
 | Default mode | Default | Default             | Default theme |
 | Dark mode   | `dark`  | `string`            | Dark theme    |
-| Mac mode    | `mac`    | `sttring` | Mac theme   |
 
 ## API
 
