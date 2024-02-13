@@ -3,7 +3,7 @@ import {ref} from 'vue'
 
 const config = ref({
   mode: '',
-  labelMore: 'Więcej'
+  labelMore: 'More'
 })
 
 const menuItem = [
