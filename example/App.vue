@@ -8,37 +8,37 @@ const config = ref({
 
 const menuItem = [
   {
-    label: "Link 1",
-    onClick: () => alert("Link 1")
+    label: "Home",
+    onClick: () => alert("Home")
   },
   {
-    label: "Link 2",
-    onClick: () => alert("Link 2"),
+    label: "About us",
+    onClick: () => alert("About us"),
   },
   {
-    label: "Link 3",
-    onClick: () => alert("Link 3"),
+    label: "Photos",
+    onClick: () => alert("Photos"),
   },
   {
-    label: "Link 4 Bardzo długi",
+    label: "Categories",
     iconLeft: {name: 'box'},
     iconRight: {name: 'arrow-down'},
-    onClick: () => alert("Link 4 Bardzo długi"),
+    onClick: () => alert("Categories"),
     submenu: [
       {
         iconLeft: {name: 'box'},
-        label: "Link 4_1 Very long text",
-        onClick: () => alert("Link 4_1 Very long text"),
+        label: "Categories 1",
+        onClick: () => alert("Categories 1"),
       },
       {
         iconLeft: {name: 'box'},
-        label: "Link 4_2",
-        onClick: () => alert("Link 4_2"),
+        label: "Categories 2",
+        onClick: () => alert("Categories 2"),
       },
       {
         iconLeft: {name: 'box'},
-        label: "Link 4_3",
-        onClick: () => alert("Link 4_3"),
+        label: "Categories 3",
+        onClick: () => alert("Categories 3"),
       }
     ]
   },
@@ -55,7 +55,7 @@ const menuItem = [
     onClick: () => alert("Link 7"),
   },
   {
-    label: "Link 8",
+    label: "Link 8 Very long text",
     onClick: () => alert("Link 8"),
     wrap: true,
     submenu: [
@@ -83,7 +83,6 @@ const menuItem = [
     onClick: () => alert("Link 10"),
   },
   {
-    iconLeft: {name: 'users'},
     label: "Link 11",
     onClick: () => alert("Link 11"),
   }

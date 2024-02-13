@@ -6,9 +6,7 @@ export interface VrmIconPayload {
 
 export const useUtils = () => {
   const vrmIcon = ({ name, options }: VrmIconPayload) => {
-    console.log(name, 'payload')
     return feather.icons[name].toSvg(options)
   }
-
   return { vrmIcon }
 }
