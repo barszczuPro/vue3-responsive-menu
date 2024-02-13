@@ -8,7 +8,7 @@
   //Text
   --res-menu-text: #5a5a5a;
   --res-menu-hover-text: #fff;
-  --res-menu-active-text: #5a5a5a;
+  --res-menu-active-text: #fff;
 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -50,8 +50,8 @@ ul {
   flex-shrink: 0;
 
   &:hover {
-    background-color: var(--res-menu-divider);
-    color: var(--res-menu-backgroud);
+    background-color: var(--res-menu-hover-backgroud);
+    color: var(--res-menu-hover-text);
     .vrm__submenu-items {
       display: block;
     }
@@ -110,11 +110,12 @@ ul {
     flex-shrink: 0;
     cursor: pointer;
     width: 100%;
+    background-color: var(--res-menu-backgroud);
     border-bottom: 2px solid var(--res-menu-divider);
-    color: var(--res-menu-divider);
+    color: var(--res-menu-text);
     &:hover {
-      background-color: var(--res-menu-divider);
-      color: var(--res-menu-backgroud);
+      background-color: var(--res-menu-hover-backgroud);
+      color: var(--res-menu-hover-text);
     }
   }
 
@@ -169,8 +170,8 @@ ul {
     cursor: pointer;
 
     &:hover {
-      background-color: var(--res-menu-divider);
-      color: var(--res-menu-backgroud);
+      background-color: var(--res-menu-hover-backgroud);
+      color: var(--res-menu-hover-text);
       .vrm__submenu-items {
         display: block;
       }
