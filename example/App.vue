@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import {ref} from 'vue'
+import {MenuItem} from "../lib/ResponsiveMenuDefine";
+import ResponsiveMenu from "../library/ResponsiveMenu.vue";
 
 const config = ref({
   mode: '',
   labelMore: 'More'
 })
 
-const menuItem = [
+const menuItem: Array<MenuItem> = [
   {
     label: "Home",
     onClick: () => alert("Home")

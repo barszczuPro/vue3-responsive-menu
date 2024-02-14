@@ -1,5 +1,4 @@
 import type { PropType } from 'vue';
-import type { MenuItem, Config } from './ResponsiveMenuDefine';
 declare const _default: import("vue").DefineComponent<{
     items: {
         type: {

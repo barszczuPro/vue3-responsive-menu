@@ -10,11 +10,12 @@ export interface Config {
 }
 export interface MenuItem {
   label: string
-  onClick?: () => Function
+  onClick?: () => void
   wrap?: boolean
   submenuWrap?: boolean
   iconLeft?: VrmIcon
   iconRight?: VrmIcon
+  submenu?: MenuItem[]
 }
 
 export interface VrmMenuItem {

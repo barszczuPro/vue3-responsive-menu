@@ -1,5 +1,5 @@
-import ResponsiveMenuInstance from './lib/ResponsiveMenuInstance';
-export default ResponsiveMenuInstance;
+import Instance from './lib/ResponsiveMenuInstance';
+export default Instance;
 
 export * from './lib/ResponsiveMenuDefine';
 
