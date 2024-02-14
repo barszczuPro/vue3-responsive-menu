@@ -6,16 +6,12 @@ import vueJsx from '@vitejs/plugin-vue-jsx'
 import dts from 'vite-plugin-dts'
 
 export default defineConfig({
-  plugins: [
-    vue(),
-    vueJsx(),
-    dts(),
-  ],
+  plugins: [vue(), vueJsx(), dts()],
   build: {
     lib: {
       entry: 'index.ts',
       name: 'vue3-responsive-menu',
-      fileName: (format) => `vue3-responsive-menu.${format}.js`,
+      fileName: (format) => `vue3-responsive-menu.${format}.js`
     },
     rollupOptions: {
       external: ['vue'],
@@ -23,11 +19,11 @@ export default defineConfig({
         globals: {
           vue: 'Vue'
         },
-        assetFileNames: 'vue3-responsive-menu.[ext]',
-      },
+        assetFileNames: 'vue3-responsive-menu.[ext]'
+      }
     },
     sourcemap: true,
-    outDir: '../lib',
+    outDir: '../lib'
   },
   resolve: {
     alias: {

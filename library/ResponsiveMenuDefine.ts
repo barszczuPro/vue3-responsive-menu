@@ -1,4 +1,4 @@
-import type { FeatherIconNames, FeatherAttributes } from "feather-icons";
+import type { FeatherIconNames, FeatherAttributes } from 'feather-icons'
 export interface VrmIcon {
   name: FeatherIconNames
   options?: Partial<FeatherAttributes>

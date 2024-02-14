@@ -1,5 +1,5 @@
-import * as feather from 'feather-icons';
-import type { VrmIcon } from "./ResponsiveMenuDefine";
+import * as feather from 'feather-icons'
+import type { VrmIcon } from './ResponsiveMenuDefine'
 
 export const useUtils = () => {
   const vrmIcon = ({ name, options }: VrmIcon) => {

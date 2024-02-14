@@ -20,5 +20,5 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": "."
   },
-  "include": ["./**/*", "./**/*.vue"],
+  "include": ["./**/*", "./**/*.vue"]
 }

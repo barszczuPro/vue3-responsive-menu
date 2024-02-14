@@ -1,54 +1,49 @@
 <template>
   <nav
-      ref="itemsRefs"
-      :class="['v-responsive-menu', { [`vrm__menu-${config.mode}`]: config.mode }, 'vrm__menu']"
+    ref="itemsRefs"
+    :class="['v-responsive-menu', { [`vrm__menu-${config.mode}`]: config.mode }, 'vrm__menu']"
   >
     <ul class="vrm__menu-items">
       <li
-          :class="['vrm__menu-item', { 'vrm__submenu': item.childs?.length }]"
-          :data-rmenu-id="item.id"
-          v-for="(item, key) in responsiveMenuMain"
-          :key="key"
-          ref="itemRefs"
-          @click="item.onClick"
+        :class="['vrm__menu-item', { vrm__submenu: item.childs?.length }]"
+        :data-rmenu-id="item.id"
+        v-for="(item, key) in responsiveMenuMain"
+        :key="key"
+        ref="itemRefs"
+        @click="item.onClick"
       >
-        <div v-if="item.iconLeft" class="vrm__icon vrm__icon-left" v-html="vrmIcon(item.iconLeft)" />
-        {{ item.label }}
-        <div v-if="item.iconRight" class="vrm__icon vrm__icon-right" v-html="vrmIcon(item.iconRight)" />
-        <span v-else></span>
+        <responsive-menu-item :item="item" />
+        <span v-if="!item.iconRight"></span>
         <ul v-if="item.childs" class="vrm__submenu-items">
           <li
-              v-for="(item, key) in responsiveMenuChilds(item.id)"
-              class="vrm__submenu-item"
-              :key="key"
-              @click.stop="item.onClick"
+            v-for="(item, key) in responsiveMenuChilds(item.id)"
+            class="vrm__submenu-item"
+            :key="key"
+            @click.stop="item.onClick"
           >
-            <div v-if="item.iconLeft" class="vrm__icon vrm__icon-left" v-html="vrmIcon(item.iconLeft)" />
-            {{ item.label }}
-            <div v-if="item.iconRight" class="vrm__icon vrm__icon-right" v-html="vrmIcon(item.iconRight)" />
+            <responsive-menu-item :item="item" />
           </li>
         </ul>
       </li>
       <li
-          :class="[
-          'vrm__more',
-          { 'vrm__more-disabled': !responsiveMenuMore.length }
-        ]"
-          ref="itemMoreRef"
+        :class="['vrm__more', { 'vrm__more-disabled': !responsiveMenuMore.length }]"
+        ref="itemMoreRef"
       >
         {{ config.labelMore }}
-        <div v-if="config.iconMore" class="vrm__icon vrm__icon-right" v-html="vrmIcon(config.iconMore)" />
+        <div
+          v-if="config.iconMore"
+          class="vrm__icon vrm__icon-right"
+          v-html="vrmIcon(config.iconMore)"
+        />
         <span v-else></span>
         <ul class="vrm__submenu-items">
           <li
-              v-for="(item, key) in responsiveMenuMore"
-              class="vrm__submenu-item"
-              :key="key"
-              @click.stop="item.onClick"
+            v-for="(item, key) in responsiveMenuMore"
+            class="vrm__submenu-item"
+            :key="key"
+            @click.stop="item.onClick"
           >
-            <div v-if="item.iconLeft" class="vrm__icon vrm__icon-left" v-html="vrmIcon(item.iconLeft)" />
-            {{ item.label }}
-            <div v-if="item.iconRight" class="vrm__icon vrm__icon-right" v-html="vrmIcon(item.iconRight)" />
+            <responsive-menu-item :item="item" />
           </li>
         </ul>
       </li>
@@ -57,11 +52,12 @@
 </template>
 
 <script lang="ts" setup>
-import {computed, nextTick, ref} from 'vue'
-import type {PropType} from 'vue'
-import {uid} from 'uid'
-import type {MenuItem, Config} from '@/ResponsiveMenuDefine'
-import { useUtils } from "./ResponsiveMenuIcon";
+import { computed, nextTick, ref } from 'vue'
+import type { PropType } from 'vue'
+import { uid } from 'uid'
+import type { MenuItem, Config } from './ResponsiveMenuDefine'
+import { useUtils } from './ResponsiveMenuIcon'
+import ResponsiveMenuItem from './ResponsiveMenuItem.vue'
 
 const { vrmIcon } = useUtils()
 
@@ -87,7 +83,7 @@ const itemMoreRef = ref<HTMLElement | null>(null)
 const responsiveMenu = ref([])
 const resizeMenuItems = ref([])
 const responsiveMenuMap = computed(() =>
-  resizeMenuItems.value.map((item) => ({[item.id]: item})).reduce((x, y) => ({...x, ...y}))
+  resizeMenuItems.value.map((item) => ({ [item.id]: item })).reduce((x, y) => ({ ...x, ...y }))
 )
 
 const responsiveMenuMain = computed(() =>
@@ -115,9 +111,9 @@ function prepareItems(menu, parentId = null, nextElement = false, wrapSubmenu = 
     const transformedItem = {
       ...item,
       id,
-      ...(wrapSubmenu && {wrapSubmenu}),
-      ...(nextEL && {nextEL}),
-      ...(parentId && {parent: parentId}),
+      ...(wrapSubmenu && { wrapSubmenu }),
+      ...(nextEL && { nextEL }),
+      ...(parentId && { parent: parentId }),
       ...(item.submenu && {
         childs: item.submenu.map((submenuItem) => {
           const transformedSubmenuItem = prepareItems([submenuItem], id, false, item.wrapSubmenu)[0]
@@ -167,7 +163,7 @@ const calculateMenu = () => {
       if (el.childs) {
         submenuIds = deleteSubmenuArr(el.id)
       }
-      return {...el, ...{offset, breakpointHide: breakpointHideAndSubmenus}}
+      return { ...el, ...{ offset, breakpointHide: breakpointHideAndSubmenus } }
     } else {
       return el
     }
@@ -184,7 +180,7 @@ const resizeMenu = () => {
     if (item.childs?.length && (item.wrap || item.wrapSubmenu)) {
       showMore = itemsOffsetWidth < item.breakpointHide + itemMoreRef.value?.offsetWidth
     }
-    return {...item, showMore: !item.parent && showMore}
+    return { ...item, showMore: !item.parent && showMore }
   })
 }
 

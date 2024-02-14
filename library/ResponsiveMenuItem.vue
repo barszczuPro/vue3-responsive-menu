@@ -5,16 +5,15 @@
 </template>
 
 <script lang="ts" setup>
-import type {MenuItem} from './ResponsiveMenuDefine'
-import { useUtils } from "./ResponsiveMenuIcon";
-import type {PropType} from "vue";
+import type { MenuItem } from './ResponsiveMenuDefine'
+import { useUtils } from './ResponsiveMenuIcon'
+import type { PropType } from 'vue'
 
 const { vrmIcon } = useUtils()
-
-const props = defineProps({
+defineProps({
   item: {
     type: Object as PropType<MenuItem>,
     default: () => ({})
-  },
+  }
 })
 </script>

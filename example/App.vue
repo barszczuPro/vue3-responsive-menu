@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import {ref} from 'vue'
-import {MenuItem} from "../lib/ResponsiveMenuDefine";
-import ResponsiveMenu from "../library/ResponsiveMenu.vue";
+import { ref } from 'vue'
+import { MenuItem } from '../lib/ResponsiveMenuDefine'
+import ResponsiveMenu from '../library/ResponsiveMenu.vue'
 
 const config = ref({
   mode: '',
@@ -10,101 +10,100 @@ const config = ref({
 
 const menuItem: Array<MenuItem> = [
   {
-    label: "Home",
-    onClick: () => alert("Home")
+    label: 'Home',
+    onClick: () => alert('Home')
   },
   {
-    label: "About us",
-    onClick: () => alert("About us"),
+    label: 'About us',
+    onClick: () => alert('About us')
   },
   {
-    label: "Photos",
-    onClick: () => alert("Photos"),
+    label: 'Photos',
+    onClick: () => alert('Photos')
   },
   {
-    label: "Categories",
-    iconLeft: {name: 'box'},
-    iconRight: {name: 'arrow-down'},
-    onClick: () => alert("Categories"),
+    label: 'Categories',
+    iconLeft: { name: 'box' },
+    iconRight: { name: 'arrow-down' },
+    onClick: () => alert('Categories'),
     submenu: [
       {
-        iconLeft: {name: 'box'},
-        label: "Categories 1",
-        onClick: () => alert("Categories 1"),
+        iconLeft: { name: 'box' },
+        label: 'Categories 1',
+        onClick: () => alert('Categories 1')
       },
       {
-        iconLeft: {name: 'box'},
-        label: "Categories 2",
-        onClick: () => alert("Categories 2"),
+        iconLeft: { name: 'box' },
+        label: 'Categories 2',
+        onClick: () => alert('Categories 2')
       },
       {
-        iconLeft: {name: 'box'},
-        label: "Categories 3",
-        onClick: () => alert("Categories 3"),
+        iconLeft: { name: 'box' },
+        label: 'Categories 3',
+        onClick: () => alert('Categories 3')
       }
     ]
   },
   {
-    label: "Link 5",
-    onClick: () => alert("Link 5"),
+    label: 'Link 5',
+    onClick: () => alert('Link 5')
   },
   {
-    label: "Link 6",
-    onClick: () => alert("Link 6"),
+    label: 'Link 6',
+    onClick: () => alert('Link 6')
   },
   {
-    label: "Link 7",
-    onClick: () => alert("Link 7"),
+    label: 'Link 7',
+    onClick: () => alert('Link 7')
   },
   {
-    label: "Link 8 Very long text",
-    onClick: () => alert("Link 8"),
+    label: 'Link 8 Very long text',
+    onClick: () => alert('Link 8'),
     wrap: true,
     submenu: [
       {
-        label: "Link 8_1 Very long text Very long text Very long text",
-        onClick: () => alert("Link 8_1 Very long text Very long text Very long text"),
+        label: 'Link 8_1 Very long text Very long text Very long text',
+        onClick: () => alert('Link 8_1 Very long text Very long text Very long text')
       },
       {
-        label: "Link 8_2",
-        onClick: () => alert("Link 8_2"),
+        label: 'Link 8_2',
+        onClick: () => alert('Link 8_2')
       },
       {
-        label: "Link 8_3",
-        onClick: () => alert("Link 8_3"),
+        label: 'Link 8_3',
+        onClick: () => alert('Link 8_3')
       }
     ]
   },
   {
-    label: "Link 9",
-    iconRight: {name: 'users'},
-    onClick: () => alert("Link 9"),
+    label: 'Link 9',
+    iconRight: { name: 'users' },
+    onClick: () => alert('Link 9')
   },
   {
-    label: "Link 10",
-    onClick: () => alert("Link 10"),
+    label: 'Link 10',
+    onClick: () => alert('Link 10')
   },
   {
-    label: "Link 11",
-    onClick: () => alert("Link 11"),
+    label: 'Link 11',
+    onClick: () => alert('Link 11')
   }
 ]
-
 </script>
 
 <template>
   <header>
-    <responsive-menu :items="menuItem" :config="config"/>
+    <responsive-menu :items="menuItem" :config="config" />
   </header>
   <div class="settings">
     <span class="settings__title">Settings:</span>
     <span class="settings__mode">Mode: {{ config.mode }}</span>
     <div>
-      <input type="radio" id="simpleMode" value="" v-model="config.mode"/>
+      <input type="radio" id="simpleMode" value="" v-model="config.mode" />
       <label for="simpleMode">Simple</label>
     </div>
     <div>
-      <input type="radio" id="darkMode" value="dark" v-model="config.mode"/>
+      <input type="radio" id="darkMode" value="dark" v-model="config.mode" />
       <label for="darkMode">Dark</label>
     </div>
   </div>
