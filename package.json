@@ -1,7 +1,6 @@
 {
   "name": "@barszczupro/vue3-responsive-menu",
-  "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1-beta",
   "description": "A Vue.js responsive menu component",
   "main": "./lib/vue3-responsive-menu.umd.js",
   "type": "module",
