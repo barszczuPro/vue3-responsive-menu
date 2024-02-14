@@ -1,4 +1,10 @@
+import type { FeatherIconNames, FeatherAttributes } from "feather-icons";
+export interface VrmIcon {
+  name: FeatherIconNames
+  options?: Partial<FeatherAttributes>
+}
 export interface Config {
+  iconMore?: VrmIcon
   labelMore: string
   mode: string
 }
@@ -7,10 +13,11 @@ export interface MenuItem {
   onClick?: () => Function
   wrap?: boolean
   submenuWrap?: boolean
-  icon?: string
+  iconLeft?: VrmIcon
+  iconRight?: VrmIcon
 }
 
-export interface ResponsiveMenuItem {
+export interface VrmMenuItem {
   id: string
   label: string
   nextEl: string

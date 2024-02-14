@@ -94,12 +94,6 @@ const menuItem = [
   <header>
     <responsive-menu :items="menuItem" :config="config"/>
   </header>
-<!--  <div class="container-test">-->
-<!--    <responsive-menu :items="menuItem" :config="{-->
-<!--  mode: 'dark',-->
-<!--  labelMore: 'Więcej'-->
-<!--}"/>-->
-<!--  </div>-->
   <div class="settings">
     <span class="settings__title">Settings:</span>
     <span class="settings__mode">Mode: {{ config.mode }}</span>
