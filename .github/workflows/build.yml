@@ -1,0 +1,31 @@
+name: Build and Publish GitHub NPM Package
+
+on:
+  push:
+    branches: [ "rmenu/001" ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 18
+          registry-url: 'https://npm.pkg.github.com'
+          scope: '@barszczupro'
+
+      - name: Install dependencies
+        run: npm install
+
+#      - name: Run tests # Opcjonalnie, jeśli masz testy
+#        run: npm test
+
+      - name: Build project
+        run: npm run build:liblary
+
+      - name: Publish to GitHub Packages
+        run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
