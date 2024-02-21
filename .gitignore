@@ -27,5 +27,3 @@ docs/.vitepress/cache
 docs/.vitepress/dist
 
 lib
-
-.npmrc
