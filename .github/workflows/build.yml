@@ -28,8 +28,9 @@ jobs:
       - name: Build project
         run: npm run build:liblary
 
+      - name: NMP CI
+        run: npm ci
       - name: Publish to GitHub Packages
-      - run: npm ci
-      - run: npm publish
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.GH_TOKEN}}
