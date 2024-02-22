@@ -21,14 +21,9 @@ jobs:
 
       - name: Install dependencies
         run: npm install
-
-#      - name: Run tests # Opcjonalnie, jeśli masz testy
-#        run: npm test
-
       - name: Build project
         run: npm run build:liblary
-
-      - name: NMP CI
+      - name: Clean install a project
         run: npm ci
       - name: Publish to GitHub Packages
         run: npm publish
