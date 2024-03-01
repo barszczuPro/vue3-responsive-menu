@@ -108,7 +108,7 @@ const menuItem: Array<MenuItem> = [
     </div>
   </div>
   <footer>
-    vue3-responsive-menu |
+    vue3-responsive-menu -  |
     <a href="https://github.com/barszczuPro/vue3-responsive-menu" target="_blank">GitHub</a>
   </footer>
 </template>

@@ -20,22 +20,23 @@
     "format": "prettier --write library/ example/"
   },
   "devDependencies": {
-    "feather-icons": "^4.29.1",
     "@rushstack/eslint-patch": "^1.3.3",
     "@types/feather-icons": "^4.29.4",
     "@types/node": "^18.17.17",
     "@vitejs/plugin-vue": "^4.5.2",
+    "@vitejs/plugin-vue-jsx": "^3.0.2",
     "@vue/eslint-config-prettier": "^8.0.0",
     "@vue/eslint-config-typescript": "^12.0.0",
-    "@vitejs/plugin-vue-jsx": "^3.0.2",
-    "vite-plugin-dts": "^3.6.4",
     "@vue/tsconfig": "^0.4.0",
+    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.49.0",
     "eslint-plugin-vue": "^9.17.0",
+    "feather-icons": "^4.29.1",
     "sass": "^1.69.5",
     "typescript": "^5.2.2",
     "uid": "^2.0.2",
     "vite": "^5.0.8",
+    "vite-plugin-dts": "^3.6.4",
     "vitepress": "1.0.0-rc.40",
     "vue": "^3.3.11",
     "vue-tsc": "^1.8.25"
@@ -53,5 +54,9 @@
     "responsivemenu"
   ],
   "author": "barszczuPro",
-  "homepage": "https://github.com/barszczuPro/vue3-responsive-menu#readme"
+  "homepage": "https://github.com/barszczuPro/vue3-responsive-menu#readme",
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"    }
+  }
 }

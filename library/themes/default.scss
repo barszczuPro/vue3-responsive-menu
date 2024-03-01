@@ -91,6 +91,7 @@ ul {
 
 .vrm__submenu {
   &-items {
+    border-top: 2px solid var(--res-menu-divider);
     border-left: 2px solid var(--res-menu-divider);
     border-right: 2px solid var(--res-menu-divider);
     position: absolute;
