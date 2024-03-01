@@ -23,6 +23,8 @@ jobs:
         run: npm install
       - name: Build project
         run: npm run build:liblary
+      - name: Release new version
+        run: npm run release
       - name: Clean install a project
         run: npm ci
       - name: Publish to GitHub Packages
