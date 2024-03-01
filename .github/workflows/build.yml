@@ -23,11 +23,6 @@ jobs:
         run: npm install
       - name: Build project
         run: npm run build:liblary
-      - name: Release new version
-        run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          npm run release
       - name: Clean install a project
         run: npm ci
       - name: Publish to GitHub Packages
